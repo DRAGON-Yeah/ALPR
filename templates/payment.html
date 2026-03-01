@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>停车缴费</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💳 停车缴费</h1>
+            <p>等待车牌识别中...</p>
+        </div>
+        
+        <div class="status-card">
+            <div id="waitingStatus" class="waiting-content">
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>正在监听车牌识别...</p>
+                    <p class="hint-text">请在识别系统上传车牌照片</p>
+                </div>
+            </div>
+            
+            <div id="paymentForm" class="payment-form-content" style="display: none;">
+                <div class="plate-info">
+                    <label>识别到车牌号码：</label>
+                    <div class="plate-number" id="plateNumber"></div>
+                </div>
+                
+                <div class="amount-info">
+                    <label>停车费用：</label>
+                    <div class="amount">¥10.00</div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="amountInput">请输入付款金额：</label>
+                    <input type="number" id="amountInput" placeholder="请输入10" step="0.01" value="10">
+                </div>
+                
+                <button id="payBtn" class="btn btn-success">确认付款</button>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <p>💡 提示：此页面会自动监听最新的车牌识别结果</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/payment.js') }}"></script>
+</body>
+</html>

@@ -303,6 +303,74 @@ body {
     font-size: 16px;
 }
 
+.status-message {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.status-message.success {
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+}
+
+.status-message.error {
+    background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);
+    color: white;
+}
+
+.status-message.info {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.waiting-content {
+    padding: 20px;
+}
+
+.hint-text {
+    font-size: 14px;
+    color: #999;
+    margin-top: 10px;
+}
+
+.payment-form-content {
+    padding: 20px;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.info-box p {
+    color: white;
+    font-size: 14px;
+    margin: 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.action-buttons .btn {
+    flex: 1;
+    margin-top: 0;
+}
+
+.action-buttons a {
+    text-decoration: none;
+}
+
 @media (max-width: 480px) {
     body {
         padding: 10px;

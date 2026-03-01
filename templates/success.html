@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>付款成功</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✅ 付款成功</h1>
+        </div>
+        
+        <div class="result-card">
+            <div class="success-icon">✓</div>
+            <h2>付款成功，已经开闸</h2>
+            <p class="success-message">请通过...</p>
+            <div class="result-info">
+                <p>车牌号：<span id="plateNumber">{{ plate_number }}</span></p>
+                <p>金额：<span>¥10.00</span></p>
+                <p>时间：<span id="paymentTime"></span></p>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <a href="/upload" class="btn btn-secondary">返回识别页面</a>
+            <a href="/payment" class="btn btn-primary">返回缴费页面</a>
+        </div>
+    </div>
+
+    <script>
+        // 显示当前时间
+        document.getElementById('paymentTime').textContent = new Date().toLocaleString('zh-CN');
+        
+        // 3秒后自动跳转到缴费页面，并强制刷新以重新启动监听
+        setTimeout(() => {
+            window.location.href = '/payment';
+        }, 3000);
+    </script>
+</body>
+</html>

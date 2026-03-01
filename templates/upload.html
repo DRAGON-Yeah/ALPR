@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>车牌识别系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚗 车牌识别系统</h1>
+            <p>请拍照或上传车牌照片</p>
+        </div>
+        
+        <div class="upload-area" id="uploadArea">
+            <input type="file" id="fileInput" accept="image/*" capture="environment">
+            <div class="upload-content">
+                <div class="icon">📷</div>
+                <p>点击拍照或上传</p>
+                <p class="hint">支持 JPG、PNG 格式</p>
+            </div>
+            <img id="previewImage" class="preview-image" style="display: none;">
+        </div>
+        
+        <button id="uploadBtn" class="btn btn-primary" style="display: none;">开始识别</button>
+        
+        <div id="uploadStatus" class="status-message" style="display: none;"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+</body>
+</html>
