@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>车牌识别停车缴费系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- 上传页面 -->
+        <div id="uploadPage" class="page active">
+            <div class="header">
+                <h1>🚗 车牌识别系统</h1>
+                <p>请上传车牌照片</p>
+            </div>
+            
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="fileInput" accept="image/*" capture="environment">
+                <div class="upload-content">
+                    <div class="icon">📷</div>
+                    <p>点击上传或拍照</p>
+                    <p class="hint">支持 JPG、PNG 格式</p>
+                </div>
+                <img id="previewImage" class="preview-image" style="display: none;">
+            </div>
+            
+            <button id="uploadBtn" class="btn btn-primary" style="display: none;">开始识别</button>
+        </div>
+
+        <!-- 付款页面 -->
+        <div id="paymentPage" class="page">
+            <div class="header">
+                <h1>💳 停车缴费</h1>
+            </div>
+            
+            <div class="status-card">
+                <div id="recognitionStatus" class="status-content">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <p>正在识别车牌...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="paymentForm" class="payment-form" style="display: none;">
+                <div class="plate-info">
+                    <label>车牌号码：</label>
+                    <div class="plate-number" id="plateNumber"></div>
+                </div>
+                
+                <div class="amount-info">
+                    <label>停车费用：</label>
+                    <div class="amount">¥10.00</div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="amountInput">请输入付款金额：</label>
+                    <input type="number" id="amountInput" placeholder="请输入10" step="0.01">
+                </div>
+                
+                <button id="payBtn" class="btn btn-success">确认付款</button>
+            </div>
+            
+            <button id="backToUpload" class="btn btn-secondary">返回重新上传</button>
+        </div>
+
+        <!-- 结果页面 -->
+        <div id="resultPage" class="page">
+            <div class="header">
+                <h1>✅ 付款成功</h1>
+            </div>
+            
+            <div class="result-card">
+                <div class="success-icon">✓</div>
+                <h2>付款成功，已经开闸</h2>
+                <p class="success-message">请通过...</p>
+                <div class="result-info">
+                    <p>车牌号：<span id="resultPlateNumber"></span></p>
+                    <p>金额：¥10.00</p>
+                </div>
+            </div>
+            
+            <button id="newTransaction" class="btn btn-primary">开始新的缴费</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
